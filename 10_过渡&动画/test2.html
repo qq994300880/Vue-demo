@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>10_过渡&动画2</title>
+    <style>
+        .bounce-enter-active {
+            animation: bounce-in 3s;
+        }
+
+        .bounce-leave-active {
+            /*animation: bounce-in 1s reverse;*/
+            animation: bounce-out 3s;
+        }
+
+        /*动画*/
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce-out {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        .myp {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="example-2">
+    <button @click="show = !show">Toggle show</button>
+    <br>
+    <transition name="bounce">
+        <p v-if="show" class="myp">Lorem</p>
+    </transition>
+</div>
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#example-2',
+        data: {
+            show: true
+        }
+    })
+</script>
+</body>
+</html>
