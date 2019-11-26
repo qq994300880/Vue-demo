@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>08_表单输入绑定</title>
@@ -37,7 +37,7 @@
         <span>城市: </span>
         <select v-model="cityId">
             <option value="">未选择</option>
-            <option :value="city.id" v-for="(city, index) in allCitys" :key="city.id">{{city.name}}</option>
+            <option v-bind:value="city.id" v-for="(city, index) in allCitys" :key="city.id">{{city.name}}</option>
         </select><br>
         <span>介绍: </span>
         <textarea rows="10" v-model="info"></textarea><br><br>
@@ -56,7 +56,7 @@
             sex: '男',
             likes: ['foot'],
             allCitys: [{id: 1, name: 'BJ'}, {id: 2, name: 'SS'}, {id: 3, name: 'SZ'}],
-            cityId: '2',
+            cityId: '1',
             info: ''
         },
         methods: {
